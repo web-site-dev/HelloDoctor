@@ -1,0 +1,459 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #C2E1FC;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+    background-color: #FFC2D9;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: top 0.3s;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo span {
+    color: #FF4081;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #FF4081;
+}
+
+.login-btn {
+    background-color: #FF4081;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #e63971;
+    transform: translateY(-2px);
+}
+
+/* ===================== HAMBURGER MENU ===================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        height: calc(100vh - 80px);
+        width: 100%;
+        background: #FFC2D9;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* ===================== HERO SECTION ===================== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 1rem 3rem;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+}
+
+.hero-text {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn,
+.primary-btn,
+.buy-btn {
+    text-decoration: none;
+    padding: 0.75rem 1.8rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: #FF4081;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #e63971;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: 6rem 10% 3rem;
+    }
+
+    .hero-image {
+        order: 2;
+        margin-bottom: 0;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+}
+
+/* ===================== WHAT WE OFFER ===================== */
+.offers-container {
+    background-color: #fff;
+    margin: 3rem 2rem;
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .features {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.feature {
+    background-color: #FFE3EC;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 300px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.feature:hover {
+    background-color: #FFD6E5;
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.feature p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* ===================== MEET OUR DOCTORS ===================== */
+.doctors-container {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.doctors-card {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    max-width: 1200px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.doctors-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .doctors-grid {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.doctor-card {
+    background-color: #FFE3EC;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 300px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.doctor-card:hover {
+    background-color: #FFD6E5;
+    transform: translateY(-5px);
+}
+
+.doctor-card img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.doctor-card h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.doctor-card p {
+    color: #FF4081;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.doctor-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.doctor-card ul li {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* ===================== PRICING SECTION ===================== */
+.pricing-section {
+    background-color: #FFC2D9;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .pricing-cards {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.pricing-card {
+    background-color: #FFE3EC;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    background-color: #FFD6E5;
+    transform: translateY(-5px);
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.pricing-card .price {
+    font-size: 2rem;
+    color: #FF4081;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.pricing-card ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.buy-btn {
+    background-color: #FF4081;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: #e63971;
+    transform: scale(1.05);
+}
+
+.pricing-card.popular {
+    border: 2px solid #FF4081;
+    background-color: #FFD6E5;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.footer-links {
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: #FFC2D9;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FF4081;
+}
+
+/* ===================== ANIMATIONS ===================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

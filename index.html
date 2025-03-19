@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloDoctor - Your Trusted Medical Companion</title>
+    <link rel="stylesheet" href="mainstyle.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">Hello<span>Doctor</span></div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><button class="login-btn">Login</button></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image fade-in">
+            <img src="8B973CDC-B9A5-4B4E-BDB6-48263EA71907-Photoroom.png" alt="HelloDoctor Doctors">
+        </div>
+        <div class="hero-text fade-in">
+            <h1>Consult Verified Doctors<br> Anytime, Anywhere</h1>
+            <p>Your health, our priority! Get instant answers from certified professionals.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn primary-btn">Ask a Doctor Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="offers-container fade-in">
+        <h2 class="section-title">What We Offer</h2>
+        <section class="features">
+            <div class="feature fade-in">
+                <h3>🔒 Anonymous & Secure</h3>
+                <p>Private consultations that keep your identity safe and secure with end-to-end encryption.</p>
+            </div>
+            <div class="feature fade-in">
+                <h3>🩺 Verified Doctors</h3>
+                <p>Consult qualified professionals and top medical students, all thoroughly verified.</p>
+            </div>
+            <div class="feature fade-in">
+                <h3>🌐 Multi-Language Support</h3>
+                <p>Available in English and Nepali to reach as many people as possible.</p>
+            </div>
+        </section>
+    </section>
+
+    <!-- Meet Our Doctors Section -->
+    <section class="doctors-container fade-in">
+        <h2 class="section-title">Meet Our Doctors</h2>
+        <div class="doctors-card">
+            <div class="doctors-grid">
+                <div class="doctor-card fade-in">
+                    <img src="Doctor-1.png" alt="Doctor 1">
+                    <h3>Dr. Sagar Pathi</h3>
+                    <p>MBBS</p>BPKHS
+                                    </div>
+                <div class="doctor-card fade-in">
+                    <img src="Doctor-2.png" alt="Doctor 2">
+                    <h3>Dr. Rochana Acharya</h3>
+                    <p>MBBS</p>BPKHS
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section fade-in">
+        <h2 class="section-title">Affordable Plans Tailored Just for You!</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card fade-in">
+                <h3>Basic Care</h3>
+                <p class="price">रु ५०</p>
+                <ul>
+                    <li>Ask 5 Questions</li>
+                    <li>General Consultation</li>
+                    <li>Email Support</li>
+                </ul>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="pricing-card popular fade-in">
+                <h3>Premium Care</h3>
+                <p class="price">रु १००</p>
+                <ul>
+                    <li>Ask 15 Questions</li>
+                    <li>Priority Response</li>
+                    <li>Email & Chat Support</li>
+                </ul>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="pricing-card fade-in">
+                <h3>Elite Care</h3>
+                <p class="price">रु २००</p>
+                <ul>
+                    <li>Unlimited Questions (30 days)</li>
+                    <li>Dedicated Doctor</li>
+                    <li>Phone & Chat Support</li>
+                </ul>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 HelloDoctor. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Navbar hide/show on scroll
+        let prevScrollpos = window.pageYOffset;
+        const navbar = document.querySelector(".navbar");
+
+        window.onscroll = function () {
+            const currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                navbar.style.top = "0";
+            } else {
+                navbar.style.top = "-100px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+
+        // Fade In on Scroll
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+
+</html>
